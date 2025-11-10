@@ -1,0 +1,20 @@
+CSS Flex Container Properties
+The flex container element can have the following properties:
+
+display - Must be set to flex or inline-flex
+flex-direction - Sets the display-direction of flex items
+flex-wrap - Specifies whether the flex items should wrap or not
+flex-flow - Shorthand property for flex-direction and flex-wrap
+justify-content - Aligns the flex items when they do not use all available space on the main-axis (horizontally)
+align-items - Aligns the flex items when they do not use all available space on the cross-axis (vertically)
+align-content - Aligns the flex lines when there is extra space in the cross axis and flex items wrap
+
+CSS flex-direction Property
+The flex-direction property specifies the display-direction of flex items in the flex container.
+
+This property can have one of the following values:
+
+row (default)
+column
+row-reverse
+column-reverse
