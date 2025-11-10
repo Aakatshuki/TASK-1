@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Database</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1, h3 {
+            text-align: center;
+        }
+        h1 {
+            color: #d14904;
+        }
+        h3 {
+            color: #da480a;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #8c1c1c;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #ffe5c7;
+        }
+        tr:nth-child(even) td {
+            background-color: #d6eeee;
+        }
+        tr.alt td {
+            background-color: #f0b36d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Employee Attendance Data</h1>
+    <h3>Attendance Record</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Department</th>
+                <th>Attendance Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>101</td>
+                <td>Alice Johnson</td>
+                <td>HR</td>
+                <td>Present</td>
+            </tr>
+            <tr class="alt">
+                <td>102</td>
+                <td>Bob Smith</td>
+                <td>IT</td>
+                <td>Absent</td>
+            </tr>
+            <tr>
+                <td>103</td>
+                <td>Charlie Brown</td>
+                <td>Finance</td>
+                <td>Present</td>
+            </tr>
+            <tr class="alt">
+                <td>104</td>
+                <td>Diana Prince</td>
+                <td>Marketing</td>
+                <td>Present</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
