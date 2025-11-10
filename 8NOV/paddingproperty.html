@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            border: 2px solid #000;
+            width: 300px;
+            margin-bottom: 16px;
+            background-color: #add8e6;
+        }
+
+        .container.simple-padding {
+            /* No explicit padding, default box model */
+        }
+
+        .container.complex-padding {
+            /* Padding: Top 50px, Right 30px, Bottom 50px, Left 30px */
+            padding: 50px 30px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h2>Padding demonstration with CSS classes</h2>
+    <div class="container simple-padding">
+        This div uses the default box model without extra padding.
+    </div>
+    <div class="container complex-padding">
+        This div demonstrates the effect of custom padding using shorthand.
+    </div>
+</body>
+</html>
