@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibrant Learning Hub</title>
+    <!-- Load Tailwind CSS for utility-first styling and responsiveness -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Configuration for the Light Theme */
+        :root {
+            --primary-color: #3b82f6; /* Blue-500 */
+            --secondary-color: #ec4899; /* Pink-500 */
+            --bg-color: #ffffff;
+            --text-color: #1f2937;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Styling the Main Heading - Fluid and Vibrant */
+        .main-title {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        /* Course Card Styling - Lift and Shadow Effect */
+        .course-card {
+            transition: all 0.3s ease-in-out;
+            border-bottom: 4px solid var(--secondary-color); /* Pink accent border */
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-bottom-color: var(--primary-color); /* Border color changes on hover */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- Header and Navigation -->
+        <header class="flex flex-col md:flex-row justify-between items-center mb-16 border-b pb-4">
+            <h1 class="text-4xl sm:text-5xl main-title mb-4 md:mb-0">
+                Luminous Learning
+            </h1>
+            <nav class="flex space-x-6 text-lg font-medium">
+                <a href="#home" class="text-gray-600 hover:text-blue-500 transition duration-150">Home</a>
+                <a href="#courses" class="text-gray-600 hover:text-blue-500 transition duration-150">Curriculum</a>
+                <a href="#instructors" class="text-gray-600 hover:text-blue-500 transition duration-150">Team</a>
+                <a href="#contact" class="px-3 py-1 rounded-full bg-pink-500 text-white hover:bg-pink-600 transition duration-150 shadow-lg">Enroll</a>
+            </nav>
+        </header>
+
+        <!-- Popular Courses Section -->
+        <section id="courses" class="text-center mb-20">
+            <h2 class="text-4xl font-bold mb-4 text-gray-800">Explore Our <span class="text-blue-500">Curriculum</span></h2>
+            <p class="text-gray-500 mb-12 max-w-2xl mx-auto">
+                Dive into our most popular, hands-on courses designed to accelerate your career growth.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <!-- Course Card 1 -->
+                <div class="course-card p-6 bg-white rounded-2xl shadow-xl border border-gray-100">
+                    <div class="text-3xl font-extrabold mb-2 text-blue-500">1.</div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Full Stack Java Mastery</h3>
+                    <p class="text-gray-500 text-sm mb-4">Mastering Spring Boot, React, and microservices architecture.</p>
+                    <div class="inline-block px-4 py-1.5 rounded-full text-white font-bold text-sm bg-blue-500">
+                        360 Hours
+                    </div>
+                </div>
+
+                <!-- Course Card 2 -->
+                <div class="course-card p-6 bg-white rounded-2xl shadow-xl border border-gray-100">
+                    <div class="text-3xl font-extrabold mb-2 text-blue-500">2.</div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Modern Web Design (UI/UX)</h3>
+                    <p class="text-gray-500 text-sm mb-4">Focus on responsive design, accessibility, and user psychology.</p>
+                    <div class="inline-block px-4 py-1.5 rounded-full text-white font-bold text-sm bg-blue-500">
+                        320 Hours
+                    </div>
+                </div>
+
+                <!-- Course Card 3 -->
+                <div class="course-card p-6 bg-white rounded-2xl shadow-xl border border-gray-100">
+                    <div class="text-3xl font-extrabold mb-2 text-blue-500">3.</div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Cloud Architecture: AWS/Azure</h3>
+                    <p class="text-gray-500 text-sm mb-4">Designing and deploying scalable cloud solutions and security.</p>
+                    <div class="inline-block px-4 py-1.5 rounded-full text-white font-bold text-sm bg-blue-500">
+                        260 Hours
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features Section (Grid Layout) -->
+        <section id="features" class="mb-20 py-12 bg-gray-50 rounded-3xl shadow-inner px-8">
+            <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Why Choose <span class="text-pink-500">Luminous</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                
+                <!-- Feature 1: Instructors -->
+                <div class="p-6 bg-white rounded-xl shadow-md border-t-4 border-pink-500">
+                    <span class="text-5xl block mb-3" role="img" aria-label="Expert">👨‍🏫</span>
+                    <h4 class="text-xl font-semibold mb-2 text-gray-700">Skilled Instructors</h4>
+                    <p class="text-sm text-gray-500">Over 10 years of industry experience and personalized mentorship.</p>
+                </div>
+
+                <!-- Feature 2: Services -->
+                <div class="p-6 bg-white rounded-xl shadow-md border-t-4 border-pink-500">
+                    <span class="text-5xl block mb-3" role="img" aria-label="Services">🏢</span>
+                    <h4 class="text-xl font-semibold mb-2 text-gray-700">Corporate Training</h4>
+                    <p class="text-sm text-gray-500">Customized programs for large teams and university partnerships.</p>
+                </div>
+
+                <!-- Feature 3: Track Record -->
+                <div class="p-6 bg-white rounded-xl shadow-md border-t-4 border-pink-500">
+                    <span class="text-5xl block mb-3" role="img" aria-label="Track Record">✅</span>
+                    <h4 class="text-xl font-semibold mb-2 text-gray-700">Proven Results</h4>
+                    <p class="text-sm text-gray-500">A track record of success in skill development and job readiness.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action / Contact -->
+        <section id="contact" class="text-center py-16 bg-blue-50 rounded-3xl">
+            <h2 class="text-3xl font-bold mb-4 text-gray-800">Ready to Start Your Journey?</h2>
+            <p class="text-gray-600 mb-8 max-w-xl mx-auto">
+                Join our community of learners and transform your career with the latest technology skills.
+            </p>
+            <a href="#" class="inline-block px-10 py-3 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-full text-lg shadow-xl transition duration-300 transform hover:scale-105">
+                Contact Our Team
+            </a>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-16 py-8 border-t bg-gray-100 text-center text-gray-600">
+        <p>&copy; 2025 Luminous Learning. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+
