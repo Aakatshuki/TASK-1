@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple JS Output</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        #output {
+            margin-top: 20px;
+        }
+        #output p {
+            padding: 8px 0;
+            border-bottom: 1px dotted #ccc;
+            font-size: 1.1em;
+        }
+        #output p:last-child {
+            border-bottom: none;
+        }
+        strong {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>JavaScript Output Demo</h1>
+        <p>Instead of logging to the console, the results are displayed below:</p>
+        
+        <!-- This is the container where the JavaScript output will appear -->
+        <div id="output">
+            Loading results...
+        </div>
+    </div>
+
+    <script>
+        // 1. Define the variables
+        let a = 10;
+        let b = 10;
+        
+        // 2. Perform the calculations
+        const addition = a + b;
+        const subtraction = a - b;
+        const multiplication = a * b;
+        const division = a / b;
+        
+        // 3. Get the output element
+        const outputDiv = document.getElementById('output');
+        
+        // 4. Create a simple string of HTML to display the results
+        let htmlContent = `
+            <p>Addition (${a} + ${b}): <strong>${addition}</strong></p>
+            <p>Subtraction (${a} - ${b}): <strong>${subtraction}</strong></p>
+            <p>Multiplication (${a} * ${b}): <strong>${multiplication}</strong></p>
+            <p>Division (${a} / ${b}): <strong>${division}</strong></p>
+        `;
+
+        // 5. Inject the content into the HTML
+        outputDiv.innerHTML = htmlContent;
+        
+        // You can still use console.log, but the main output is now on the page
+        console.log("Results are displayed on the page.");
+    </script>
+
+</body>
+</html>
