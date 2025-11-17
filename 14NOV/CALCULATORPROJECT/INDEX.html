@@ -3,52 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>calculator</title> 
-<link rel="stylesheet" href="styles.css">
+    <title>Interactive Arithmetic Calculator</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #1f2937;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #4b5563;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #4338ca;
+        }
+        #output {
+            margin-top: 25px;
+            padding: 15px;
+            border: 1px solid #e0e7ff;
+            background-color: #f5f3ff;
+            border-radius: 8px;
+        }
+        #output p {
+            padding: 5px 0;
+            font-size: 1em;
+            color: #1f2937;
+        }
+        strong {
+            font-weight: bold;
+            color: #9333ea;
+        }
+        .error {
+            color: #dc2626;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+    </style>
 </head>
-<body>     
-      <div class="calculator">
-            <div class="prev-history">Previous Answer:<span id="prev-history">0</span></div>
-            <input type="text" id="display" value="0" disabled />
-            <button class="equal-btn" onclick="calculator()">=</button>
-            <button class="clear-btn" onclick="clearEntry()">clearEntry</button>
+<body>
+
+    <div class="container">
+        <h1>Arithmetic Operations</h1>
+        
+        <div class="input-group">
+            <label for="inputA">Enter Value A:</label>
+            <input type="number" id="inputA" value="10" placeholder="Number A">
+        </div>
+
+        <div class="input-group">
+            <label for="inputB">Enter Value B:</label>
+            <input type="number" id="inputB" value="10" placeholder="Number B">
+        </div>
+
+        <button onclick="calculateArithmetic()">Calculate Results</button>
+        
+        <!-- Output will be displayed here -->
+        <div id="output">
+            <p>Enter values and click "Calculate Results" to see the output.</p>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Reads input values, performs arithmetic, and displays the results.
+         */
+        function calculateArithmetic() {
+            // Get string values from input fields
+            const inputAValue = document.getElementById('inputA').value;
+            const inputBValue = document.getElementById('inputB').value;
+            const outputDiv = document.getElementById('output');
+
+            // Convert values to floating-point numbers
+            const a = parseFloat(inputAValue);
+            const b = parseFloat(inputBValue);
             
-            <div class="main-section">
-                  <div class="operator">
-                  <button class="backspace-btn" onclick="backspace()">⌫</button>
-                    <button type="button" class="operator" value="+" onclick="press('+')">+</button>
-                    <button type="button" class="operator" value="-" onclick="press('-')">-</button>
-                    <button type="button" class="operator" value="*" onclick="press('*')">*</button>
-                    <button type="button" class="operator" value="/" onclick="press('/')">/</button>
-                  </div>
+            // Simple validation check
+            if (isNaN(a) || isNaN(b) || inputAValue === '' || inputBValue === '') {
+                outputDiv.innerHTML = '<p class="error">Please enter valid numbers for both fields.</p>';
+                return;
+            }
 
-                  <div class="number-keys">
-                       <div class="top-row">
-                          <button type="button" value="7" onclick="press('7')">7</button>
-                          <button type="button" value="8" onclick="press('8')">8</button>
-                          <button type="button" value="9" onclick="press('9')">9</button></br>
-                        </div>
-                        <div class="middle-row">
-                         <button type="button" value="6" onclick="press('6')">6</button> 
-                         <button type="button" value="5" onclick="press('5')">5</button>
-                         <button type="button" value="4" onclick="press('4')">4</button></br>
-                        </div>
-                  
-                        <div class="bottom-row">
-                             <button type="button" value="1" onclick="press('1')">1</button>
-                             <button type="button" value="2" onclick="press('2')">2</button>
-                             <button type="button" value="3" onclick="press('3')">3</button>
-                        </div>
+            // Perform the calculations
+            const addition = a + b;
+            const subtraction = a - b;
+            const multiplication = a * b;
+            const division = a / b;
+            
+            // Check for division by zero
+            let divisionResult = division;
+            if (b === 0) {
+                divisionResult = "Cannot divide by zero";
+            } else {
+                divisionResult = division.toFixed(2); // Keep division clean
+            }
+            
+            // Create HTML content for the results
+            let htmlContent = `
+                <p><strong>Input A:</strong> ${a}</p>
+                <p><strong>Input B:</strong> ${b}</p>
+                <hr style="margin: 10px 0; border: none; border-top: 1px dashed #c4b5fd;">
+                <p>Addition (A + B): <strong>${addition}</strong></p>
+                <p>Subtraction (A - B): <strong>${subtraction}</strong></p>
+                <p>Multiplication (A * B): <strong>${multiplication}</strong></p>
+                <p>Division (A / B): <strong>${divisionResult}</strong></p>
+            `;
 
-                        <div class="last-row">  
-                         <button type="button" value="0" onclick="press('0')">0</button>
-                         <button type="button" class="decimal" value="." onclick="press('.')">.</button>
-                       
+            // Inject the content into the output div
+            outputDiv.innerHTML = htmlContent;
+        }
 
-                         </div>
-                   </div>
-            </div>
-      </div>
-<script src="script.js"></script>      
+        // Run the calculation once on load with default values
+        document.addEventListener('DOMContentLoaded', calculateArithmetic);
+    </script>
+
 </body>
 </html>
