@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+    }
+
+    .form-container {
+      width: 300px;
+      margin: 40px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 6px;
+      margin: 6px 0;
+      box-sizing: border-box;
+    }
+
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <form id="userForm">
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="number" name="age" placeholder="Age" required />
+
+      <select name="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+
+      <input type="text" name="country" placeholder="Country" />
+      <input type="password" name="password" placeholder="Password" />
+      <input type="text" name="note" placeholder="Note" />
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("userForm");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      console.log("SUBMITTED DATA:", data);
+    });
+  </script>
+
+</body>
+</html>
